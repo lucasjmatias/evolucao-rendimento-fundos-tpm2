@@ -1,18 +1,20 @@
 import React from 'react';
+import { formatDateMonthYear } from '../utils/date-utils';
+import { formatMoney, formatPercent } from '../utils/number-utils';
+import { colorizeNumber } from '../utils/style-utils';
 
-export default function Investment({ children }) {
-  const {
-    dateFormatted,
-    valueFormatted,
-    incomePercentFormatted,
-    incomeFormatted,
-  } = children;
+export default function Investment({ children: investment }) {
+  const { referenceDate, value, incomePercent } = investment;
   return (
     <div className="flex border-b-2 text-sm ">
-      <div className="flex-none p-1">{dateFormatted}</div>
-      <div className="flex-1 w-64 p-1 font-bold">{valueFormatted}</div>
-      <div className="flex-none p-1">
-        {incomeFormatted} ({incomePercentFormatted})
+      <div className="flex-none p-1">{formatDateMonthYear(referenceDate)}</div>
+      <div
+        className={`flex-1 w-64 p-1 font-bold ${colorizeNumber(incomePercent)}`}
+      >
+        {formatMoney(value)}
+      </div>
+      <div className={`flex-none p-1 ${colorizeNumber(incomePercent)}`}>
+        {formatPercent(incomePercent)}
       </div>
     </div>
   );
