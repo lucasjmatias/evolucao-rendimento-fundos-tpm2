@@ -7,7 +7,9 @@ export default function Investment({ children: investment }) {
   const { referenceDate, value, incomePercent } = investment;
   return (
     <div className="flex border-b-2 text-sm ">
-      <div className="flex-none p-1">{formatDateMonthYear(referenceDate)}</div>
+      <div className="flex-none w-32 p-1">
+        {formatDateMonthYear(referenceDate)}
+      </div>
       <div
         className={`flex-1 w-64 p-1 font-bold ${colorizeNumber(incomePercent)}`}
       >
