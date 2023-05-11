@@ -6,7 +6,7 @@ import { colorizeNumber } from '../utils/style-utils';
 export default function Investment({ children: investment }) {
   const { referenceDate, value, incomePercent } = investment;
   return (
-    <div className="flex border-b-2 text-sm ">
+    <div className="flex border-b-2 text-sm hover:bg-blue-200 ">
       <div className="flex-none w-32 p-1">
         {formatDateMonthYear(referenceDate)}
       </div>
